@@ -10,6 +10,8 @@
  * Descripción:
  *  - Introduccion en laboratorio de OPENMP
  *  - Clausulas y directivas para el programa
+ * - Ejemplo básico de paralelización con OpenMP
+ * - Uso de la directiva parallel
  *********************************************************************************************/
 
 #include <omp.h>     // Header necesario para invocar API OpenMP

@@ -10,6 +10,8 @@
  * Descripción:
  *  - Introduccion en laboratorio de OPENMP
  *  - Clausulas y directivas para el programa
+ *  - Ejemplo de uso de variables privadas y compartidas
+ *  Se elimina la condición de carrera al hacer 'b' privada
  *********************************************************************************************/
 
 

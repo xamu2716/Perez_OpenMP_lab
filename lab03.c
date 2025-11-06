@@ -10,6 +10,9 @@
  * Descripción:
  *  - Introduccion en laboratorio de OPENMP
  *  - Clausulas y directivas para el programa
+ * - Ejemplo de uso de variables privadas y compartidas
+ * Existe una condición de carrera al hacer 'a' privada
+ * Pero b es compartida entre los hilos
  *********************************************************************************************/
 
 #include <omp.h>    //<------------- Header necesario para invocar API OpenMP

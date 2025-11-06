@@ -11,6 +11,14 @@
  *  - Calculo de la sumatoria de la funcion SENO
  *  - Para compilar se hace uso del FLAG
  *	interfaz matematica del GCC
+ *	-lm
+ * Se observa como la sumatoria siempre da el mismo resultado
+ * sin importar el número de hilos con los que se ejecute
+ * además de la mejora en el tiempo de ejecución al aumentar
+ * el número de hilos.
+ * Con esto se puede concluir que la paralelización es correcta
+ * y que la función seno es independiente para cada valor
+ * de i.
  *********************************************************************************************/
 #include <omp.h>     // Header necesario para invocar API OpenMP
 #include <stdio.h>
@@ -31,18 +39,18 @@ double f(int i) {// Función que calcula el seno de un valor basado en el índic
     return return_val;// Devuelve el valor acumulado
 }
 
-struct timeval inicio, fin;
+struct timeval inicio, fin;// Estructuras para medir el tiempo
 
-void InicioMuestra(){
-    gettimeofday(&inicio, NULL);
+void InicioMuestra(){// Función para iniciar la medición del tiempo
+    gettimeofday(&inicio, NULL);// Obtiene el tiempo actual y lo almacena en 'inicio'
 }
 
-void FinMuestra(){
-    gettimeofday(&fin, NULL);
-    long sec  = fin.tv_sec  - inicio.tv_sec;
-    long usec = fin.tv_usec - inicio.tv_usec;
-    double tiempo = (double)sec + (double)usec / 1e6;
-    printf("Time elapsed : %.9f secs\n", tiempo);
+void FinMuestra(){// Función para finalizar la medición del tiempo e imprimir el resultado
+    gettimeofday(&fin, NULL);// Obtiene el tiempo actual y lo almacena en 'fin'
+    long sec  = fin.tv_sec  - inicio.tv_sec;// Calcula la diferencia en segundos
+    long usec = fin.tv_usec - inicio.tv_usec;// Calcula la diferencia en microsegundos
+    double tiempo = (double)sec + (double)usec / 1e6;// Convierte el tiempo total a segundos
+    printf("Time elapsed : %.9f secs\n", tiempo);// Imprime el tiempo transcurrido  
 }
 
 int main(int argc, char *argv[]) {
