@@ -1,3 +1,15 @@
+#############################################################################################
+ # Pontificia Universidad Javeriana
+ #
+ # Materia Sistemas Operativos
+ # Docente: J. Corredor, PhD
+ # Autor: Xamuel Perez
+ # Fecha: 4/11/2025
+ # Tema: OpenMP
+ #
+ # Descripción:
+ #  - Makefile para compilar los programas de laboratorio de OpenMP
+ #############################################################################################/
 GCC = gcc
 FLAGS = -fopenmp -lm
 

@@ -18,16 +18,16 @@
 #include <stdlib.h>
 
 int main(){
-    int i;
-    const int N = 1000;
-    int a = 50;
-    int b = 0;
+    int i;// Variable de control para el ciclo
+    const int N = 1000;// Tamaño del ciclo
+    int a = 50;// Variable compartida, acumulador inicial
+    int b = 0;// Variable compartida, guarda el acumulado
 
-    #pragma omp parallel for private(i) private(a) private(b)
-    for (i=0; i<N; i++){
-        b = a + i;
+    #pragma omp parallel for private(i) private(a) private(b)//<----- Directiva para paralelizar el ciclo for
+    for (i=0; i<N; i++){// Ciclo for paralelo
+        b = a + i;// Operación que cada hilo realizará
     }
-
+    //Se elimina la condición de carrera al hacer 'b' privada
     printf("a = %d b = %d (Se espera a=50 b = 1049)\n", a,b);
     return 0;
 }
